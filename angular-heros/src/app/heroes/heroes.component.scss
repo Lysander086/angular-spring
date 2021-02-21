@@ -42,3 +42,13 @@
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+
+.heroes-container {
+  //background-color: yellow;
+  width: 100%;
+  display: flex;
+  //justify-content: space-around;
+  .heroes{
+    margin-right: 30px;
+  }
+}

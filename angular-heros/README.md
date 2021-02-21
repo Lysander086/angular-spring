@@ -3,5 +3,5 @@
 
 
 
-rezp: https://angular.io/tutorial/toh-pt2#styles
+rezp: https://angular.io/tutorial/toh-pt5
  

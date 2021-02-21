@@ -1,22 +1,18 @@
 <h2>My Heroes</h2>
-<!--  list section START -->
-<ul class="heroes">
-  <li *ngFor="let hero of heroes"
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
-  </li>
-</ul>
-<!--  list section END  -->
+<div class="heroes-container">
 
-<div *ngIf="selectedHero">
+  <!--  list section START -->
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes"
+        [class.selected]="hero === selectedHero"
+        (click)="onSelect(hero)">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+  </ul>
+  <!--  list section END  -->
 
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name"/>
-    </label>
-  </div>
+  <!-- property binding => pass value to child component -->
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
 
 </div>
+
