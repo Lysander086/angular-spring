@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:sqlite:d:/test.db
+    url: jdbc:sqlite:/finance.db
     driver-class-name: org.sqlite.JDBC
   redis:
     host: 127.0.0.1

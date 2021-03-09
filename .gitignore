@@ -2,7 +2,9 @@
 # secret files
 # front end
 **/.env
-
+# database file
+*.db
+finance.db
 
 HELP.md
 target/
@@ -70,3 +72,4 @@ yarn-error.log*
 *.sw*
 
 package-lock.json
+finance-sys/src/main/resources/finance.db
