@@ -28,8 +28,8 @@ export const queryPosi = () => {
 
 //查股票代码
 export const queryCodeName = (params) => {
-    return reqRealEnd("post",config.real_domain,
-        '/api/code', params);
+    return reqRealEnd("post",
+        config.real_domain, '/api/code', params);
 };
 
 //查委托
@@ -38,6 +38,7 @@ export const queryOrder = () => {
         '/api/orderinfo',
         {uid: sessionStorage.getItem('uid')},
         (code, msg, data) => {
+            // store.state.posiData = data;
             store.commit("updateOrder", data)
         })
 };
@@ -48,17 +49,14 @@ export const queryTrade = () => {
         '/api/tradeinfo',
         {uid: sessionStorage.getItem('uid')},
         (code, msg, data) => {
+            console.log(data);
+            // store.state.posiData = data;
             store.commit("updateTrade", data)
         })
 };
-//
-// //发送委托
-// export const sendOrder = (params,callback) =>{
-//     return reqRealEndAsync("post",config.real_domain,
-//         '/api/sendorder',params,callback);
-// }
-//
-// // 委托
-// export const cancelOrder = (params,callback) => {
-//     return reqRealEndAsync("post", config.real_domain, '/api/cancelorder', params, callback);
-// };
+
+//发送委托
+export const sendOrder = (params,callback) =>{
+    return reqRealEndAsync("post",config.real_domain,
+        '/api/sendorder',params,callback);
+}

@@ -24,5 +24,4 @@ export const constants = {
     TRADED: 4,
     PART_TRADED: 5,
     ILLEGAL: 6,
-
 };
