@@ -43,6 +43,7 @@ build/
 **/node_modules
 # files under this dir will all be ignored
 **/archivez
+**/gudytrader
 **/.svn/
 
 
