@@ -5,13 +5,13 @@
                 <el-breadcrumb-item>
                     <i class="el-icon-s-order"></i> 委托
                 </el-breadcrumb-item>
-                <el-breadcrumb-item>买入</el-breadcrumb-item>
+                <el-breadcrumb-item>卖出</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <el-card shadow="hover" class="container">
             <el-row>
                 <el-col :span="12">
-                    <order-widget :direction="0"/>
+                    <order-widget :direction="1"/>
                 </el-col>
                 <el-col :span="12">
                     <order-book/>
@@ -25,14 +25,14 @@
 
 <script>
 
+
     import OrderWidget from "../components/OrderWidget";
     import OrderBook from "../components/OrderBook";
-
     import PosiList from "../components/PosiList";
 
 
     export default {
-        name: "Buy",
+        name: "Sell",
         components: {
             OrderWidget,
             OrderBook,
@@ -40,3 +40,7 @@
         },
     }
 </script>
+
+<style scoped>
+
+</style>

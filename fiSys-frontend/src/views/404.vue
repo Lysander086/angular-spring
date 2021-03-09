@@ -8,11 +8,6 @@
     </div>
 </template>
 
-<script>
-    export default {
-        name: "404.vue"
-    }
-</script>
 
 <style scoped>
     .error-page {
@@ -45,9 +40,5 @@
     .error-handle {
         margin-top: 30px;
         padding-bottom: 200px;
-    }
-
-    .error-btn {
-        margin-left: 100px;
     }
 </style>

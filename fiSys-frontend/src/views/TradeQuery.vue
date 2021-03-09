@@ -5,11 +5,11 @@
                 <el-breadcrumb-item>
                     <i class="el-icon-s-order"></i> 查询
                 </el-breadcrumb-item>
-                <el-breadcrumb-item>当日委托</el-breadcrumb-item>
+                <el-breadcrumb-item>当日成交</el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <el-card shadow="hover" class="container">
-            <order-list/>
+            <trade-list/>
         </el-card>
 
     </div>
@@ -17,12 +17,12 @@
 
 <script>
 
-    import OrderList from "../components/OrderList";
+    import TradeList from "../components/TradeList";
 
     export default {
-        name: 'OrderQuery',
+        name: 'TradeQuery',
         components: {
-            OrderList,
+            TradeList,
         },
     };
 </script>

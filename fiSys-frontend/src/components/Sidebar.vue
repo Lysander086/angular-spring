@@ -2,52 +2,58 @@
     <div class="sidebar">
         <el-menu
                 class="sidebar-el-menu"
+                :default-active="onRoutes"
+                :collapse="collapse"
                 background-color="#324157"
                 text-color="#bfcbd9"
                 active-text-color="#20a0ff"
-
                 unique-opened
                 router
-
-                :collapse="collapse"
-                :default-active="onRoutes"
         >
-
             <template v-for="item in items">
-                <!-- 有下拉菜单-->
                 <template v-if="item.subs">
-                    <!-- 子菜单-->
                     <el-submenu :index="item.index" :key="item.index">
-                        <!-- 提示项-->
                         <template slot="title">
-                            <i :class="item.icon"/>
-                            <span slot="title">{{item.title}}</span>
+                            <i :class="item.icon"></i>
+                            <span slot="title">{{ item.title }}</span>
                         </template>
                         <template v-for="subItem in item.subs">
-                            <el-menu-item :index="subItem.index" :key="subItem.index">
-                                {{subItem.title}}
+                            <el-submenu
+                                    v-if="subItem.subs"
+                                    :index="subItem.index"
+                                    :key="subItem.index"
+                            >
+                                <template slot="title">{{ subItem.title }}</template>
+                                <el-menu-item
+                                        v-for="(threeItem,i) in subItem.subs"
+                                        :key="i"
+                                        :index="threeItem.index"
+                                >{{ threeItem.title }}
+                                </el-menu-item>
+                            </el-submenu>
+                            <el-menu-item
+                                    v-else
+                                    :index="subItem.index"
+                                    :key="subItem.index"
+                            >{{ subItem.title }}
                             </el-menu-item>
                         </template>
                     </el-submenu>
                 </template>
-                <!-- 普通item-->
                 <template v-else>
                     <el-menu-item :index="item.index" :key="item.index">
-                        <i :class="item.icon"/>
-                        <span slot="title">{{item.title}}</span>
+                        <i :class="item.icon"></i>
+                        <span slot="title">{{ item.title }}</span>
                     </el-menu-item>
                 </template>
-
-
             </template>
-
         </el-menu>
     </div>
 </template>
 
 <script>
+
     export default {
-        name: "Sidebar.vue",
         data() {
             return {
                 collapse: false,
@@ -90,6 +96,7 @@
                             },
                         ]
                     },
+
                     {
                         icon: 'el-icon-bank-card',
                         index: '4',
@@ -110,36 +117,27 @@
                         index: 'pwdsetting',
                         title: '修改密码'
                     },
+
+
                 ]
-            }
+            };
         },
         computed: {
-            // http://localhost:8082/dashboard
             onRoutes() {
                 return this.$route.path.replace('/', '');
-            },
-        },
-        methods: {
-            collapseChange(msg) {
-                this.collapse = msg;
-                this.$bus.emit("collapse-content", msg);
             }
         },
         created() {
-            //订阅collapse消息
-            this.$bus.on("collapse", msg => {
-                this.collapseChange(msg);
-            });
-        },
-        beforeDestroy() {
-            this.$bus.off("collapse", msg => {
-                this.collapseChange(msg);
+            // 通过 Event Bus 进行组件间通信，来折叠侧边栏
+            this.$bus.on('collapse', msg => {
+                this.collapse = msg;
+                this.$bus.emit('collapse-content', msg);
             });
         }
-    }
+    };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
     .sidebar {
         display: block;
         position: absolute;
@@ -148,13 +146,13 @@
         bottom: 0;
         overflow-y: scroll;
 
+
         .el-menu-item {
             min-width: 150px;
         }
 
         li {
             text-align: left;
-
             .el-tooltip {
                 width: auto ! important;
             }
@@ -165,7 +163,7 @@
             border-right-width: 0;
         }
 
-        .el-menu--collapse {
+        .el-menu--collapse{
             width: auto ! important;
         }
     }
@@ -181,4 +179,8 @@
     .sidebar > ul {
         height: 100%;
     }
+
+
+
+
 </style>
