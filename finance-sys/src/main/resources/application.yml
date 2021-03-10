@@ -15,7 +15,7 @@ mybatis-plus:
     jdbc-type-for-null: 'null'
 
 server:
-  port: 9005
+  port: 8090
 
 
 #缓存过期时间

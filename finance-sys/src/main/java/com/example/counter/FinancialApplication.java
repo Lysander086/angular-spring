@@ -15,8 +15,8 @@ public class FinancialApplication {
     private CounterConfig counterConfig;
 
     @PostConstruct
-    private void init(){
-        GudyUuid.getInstance().init(counterConfig.getDataCenterId(),counterConfig.getWorkerId());
+    private void init() {
+        GudyUuid.getInstance().init(counterConfig.getDataCenterId(), counterConfig.getWorkerId());
     }
 
     public static void main(String[] args) {

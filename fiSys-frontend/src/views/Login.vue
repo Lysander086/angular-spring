@@ -102,6 +102,7 @@ export default {
     //验证码获取
     getCode() {
       queryCaptcha(this.captchaCallback);
+      debugger
     },
 
     //登录回调函数

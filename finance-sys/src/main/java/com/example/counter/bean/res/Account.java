@@ -11,7 +11,6 @@ import javax.persistence.Id;
 @Setter
 @ToString
 @NoArgsConstructor
-@RequiredArgsConstructor
 @Entity
 public class Account {
 
