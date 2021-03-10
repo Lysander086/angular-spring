@@ -1,3 +1,4 @@
+*.log
 # java.gitignore + frontend.gitignore
 # secret files
 # front end
