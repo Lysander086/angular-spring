@@ -9,7 +9,10 @@
           and t.password = #{Password}
     </select>
 
-<!--    <update id="updateAccountLoginTime" parameterType=""></update>-->
+    <update id="updateAccountLoginTime" parameterType="hashmap">
+        update t_user set modifyDate = #{ModifyDate},
+         modifyTime = #{ModifyTime} where uid = #{UId}
+    </update>
 
 
 

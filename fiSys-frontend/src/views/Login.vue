@@ -58,7 +58,7 @@ import {
   queryBalance,
   queryTrade,
   queryOrder,
-  queryPosi
+  queryPosi,
 } from "../api/orderApi";
 
 export default {
@@ -70,7 +70,7 @@ export default {
         uid: "",
         password: "",
         captcha: "",
-        captchaId: ""
+        captchaId: "",
       },
       //2.验证码图片
       codeImg: "",
@@ -78,10 +78,10 @@ export default {
       rules: {
         uid: [{ required: true, message: "请输入账号", trigger: "blur" }],
         password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-        captcha: [{ required: true, message: "请输入验证码", trigger: "blur" }]
+        captcha: [{ required: true, message: "请输入验证码", trigger: "blur" }],
       },
       //4.防止前端重复提交
-      logining: false
+      logining: false,
     };
   },
   //加载立刻执行
@@ -102,7 +102,6 @@ export default {
     //验证码获取
     getCode() {
       queryCaptcha(this.captchaCallback);
-      // debugger
     },
 
     //登录回调函数
@@ -141,7 +140,7 @@ export default {
     },
     //提交表单
     submitForm(formName) {
-      this.$refs[formName].validate(valid => {
+      this.$refs[formName].validate((valid) => {
         if (valid) {
           this.logining = true;
           login(
@@ -149,7 +148,7 @@ export default {
               uid: this.ruleForm.uid,
               password: encryptMD5(this.ruleForm.password),
               captcha: this.ruleForm.captcha,
-              captchaId: this.ruleForm.captchaId
+              captchaId: this.ruleForm.captchaId,
             },
             this.loginCallback
           );
@@ -158,8 +157,8 @@ export default {
           this.logining = false;
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -2,12 +2,12 @@ package com.example.counter.bean.res;
 
 import lombok.*;
 
-@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @ToString
-@AllArgsConstructor
 public class CaptchaRes {
+
     private String id;
 
     private String imageBase64;

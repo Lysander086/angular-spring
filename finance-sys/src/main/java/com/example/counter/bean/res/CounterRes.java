@@ -1,4 +1,4 @@
-package com.example.counter.res;
+package com.example.counter.bean.res;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

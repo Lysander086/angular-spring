@@ -1,15 +1,15 @@
+
 spring:
   datasource:
-    url: jdbc:sqlite:/finance.db
+    url: jdbc:sqlite:finance.db
     driver-class-name: org.sqlite.JDBC
   redis:
     host: 127.0.0.1
     port: 6379
     timeout: 6000ms
-
-
 mybatis:
   mapper-locations: classpath:mapper/*.xml
+
 mybatis-plus:
   configuration:
     jdbc-type-for-null: 'null'

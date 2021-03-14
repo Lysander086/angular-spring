@@ -1,27 +1,26 @@
 package com.example.counter.bean.res;
 
-import com.sun.istack.NotNull;
 import lombok.*;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-@Entity
+@RequiredArgsConstructor
 public class Account {
 
-    @Id
-    @NotNull
+    @NonNull
     private int id;
-    @NotNull
+
+    @NonNull
     private long uid;
-    @NotNull
+
+    @NonNull
     private String lastLoginDate;
-    @NotNull
+
+    @NonNull
     private String lastLoginTime;
+
     private String token;
+
 }
