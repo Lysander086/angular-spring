@@ -105,6 +105,7 @@ public class DbUtil {
                 )
         );
     }
+
     ////////////////////////////////资金类///////////////////////////////////
     public static long getBalance(long uid) {
         Long res = dbUtil.getSqlSessionTemplate().selectOne(
@@ -193,6 +194,7 @@ public class DbUtil {
     }
 
     ////////////////////////////////持仓类///////////////////////////////////
+
     /**
      * 由于持仓、委托、成交数据是需要频繁查询的数据，会对数据库造成很大的负担
      * （优化）：将需要频繁查询的数据在redis缓存中存储一份

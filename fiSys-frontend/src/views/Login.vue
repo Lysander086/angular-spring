@@ -135,7 +135,7 @@ export default {
           queryOrder();
           queryTrade();
           queryPosi();
-          debugger
+          // debugger
         }, 1000);
       }
     },

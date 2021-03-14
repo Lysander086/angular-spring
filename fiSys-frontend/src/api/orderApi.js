@@ -26,7 +26,7 @@ export const queryPosi = () => {
     "/api/posiinfo",
     { uid: sessionStorage.getItem("uid") },
     (code, msg, data) => {
-      debugger
+      // debugger
       store.commit("updatePosi", data);
     }
   );

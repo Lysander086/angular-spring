@@ -9,15 +9,19 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>finance-sys</artifactId>
+    <artifactId>finance-gateway-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>finance-sys</name>
-    <description>Demo project for Spring Boot</description>
+    <name>finance-gateway-demo</name>
+    <description>finance-gateway</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
     <dependencies>
+        <dependency>
+            <groupId>io.vertx</groupId>
+            <artifactId>vertx-core</artifactId>
+            <version>3.8.5</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
         <dependency>
             <groupId>junit</groupId>
@@ -72,11 +76,6 @@
             <artifactId>sqlite-dialect</artifactId>
             <version>0.1.0</version>
         </dependency>
-        <!--jpa-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-jpa</artifactId>-->
-<!--        </dependency>-->
 
         <!--mybatis依赖-->
         <dependency>
@@ -97,7 +96,6 @@
             <artifactId>mybatis-enhance-actable</artifactId>
             <version>1.1.1.RELEASE</version>
         </dependency>
-
 
         <!--log4j2日志-->
         <dependency>
