@@ -1,4 +1,4 @@
-package thirdpart.order;
+package com.example.counter.thirdParty.order;
 
 import lombok.Builder;
 import lombok.ToString;

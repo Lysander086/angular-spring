@@ -49,7 +49,6 @@ public class LoginController {
                             @RequestParam String password,
                             @RequestParam String captcha,
                             @RequestParam String captchaId) throws Exception {
-
         Account account = accountService.login(uid, password, captcha, captchaId);
         if (account== null){
             return new CounterRes(FAIL,

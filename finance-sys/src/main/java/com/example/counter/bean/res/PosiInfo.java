@@ -21,5 +21,4 @@ public class PosiInfo {
     private long cost;
     private long count;
 
-
 }

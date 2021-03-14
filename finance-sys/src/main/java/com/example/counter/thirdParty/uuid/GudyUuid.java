@@ -1,8 +1,5 @@
 package com.example.counter.thirdParty.uuid;
 
-/**
- * 饿汉模式
- */
 public class GudyUuid {
 
     private static GudyUuid ourInstance = new GudyUuid();
@@ -14,11 +11,11 @@ public class GudyUuid {
     private GudyUuid() {
     }
 
-    private SnowflakeIdWorker idWorker;
-
     public void init(long centerId, long workerId) {
         idWorker = new SnowflakeIdWorker(workerId, centerId);
     }
+
+    private SnowflakeIdWorker idWorker;
 
     public long getUUID() {
         return idWorker.nextId();

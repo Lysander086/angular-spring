@@ -3,12 +3,12 @@ package com.example.counter.service;
 import com.example.counter.bean.res.Account;
 import com.example.counter.cache.CacheType;
 import com.example.counter.cache.RedisStringCache;
+import com.example.counter.thirdParty.uuid.GudyUuid;
 import com.example.counter.util.DbUtil;
 import com.example.counter.util.JsonUtil;
 import com.example.counter.util.TimeformatUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
-import thirdpart.uuid.GudyUuid;
 
 import java.util.Date;
 

@@ -6,6 +6,8 @@ import com.example.counter.bean.res.PosiInfo;
 import com.example.counter.bean.res.TradeInfo;
 import com.example.counter.cache.CacheType;
 import com.example.counter.cache.RedisStringCache;
+import com.example.counter.thirdParty.order.OrderCmd;
+import com.example.counter.thirdParty.order.OrderStatus;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -14,8 +16,6 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
-import thirdpart.order.OrderCmd;
-import thirdpart.order.OrderStatus;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
