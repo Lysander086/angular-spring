@@ -18,14 +18,13 @@ public class FinancialApplication {
     @Autowired
     private CounterConfig counterConfig;
 
-    @PostConstruct
-    private void init() {
-        GudyUuid.getInstance().init(counterConfig.getDataCenterId(), counterConfig.getWorkerId());
-    }
-
     public static void main(String[] args) {
         SpringApplication.run(FinancialApplication.class, args);
     }
 
+    @PostConstruct
+    private void init(){
+        GudyUuid.getInstance().init(counterConfig.getDataCenterId(),counterConfig.getWorkerId());
+    }
 
 }

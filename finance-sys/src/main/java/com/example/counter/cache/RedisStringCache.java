@@ -1,7 +1,5 @@
 package com.example.counter.cache;
 
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -14,39 +12,20 @@ import java.util.concurrent.TimeUnit;
 public class RedisStringCache {
 
     private static RedisStringCache redisStringCache;
-
     @Autowired
-    @Setter
-    @Getter
-    private static StringRedisTemplate template;
-
+    private StringRedisTemplate template;
     @Value("${cacheexpire.captcha}")
-    @Setter
-    @Getter
     private int captchaExpireTime;
-
     @Value("${cacheexpire.account}")
-    @Setter
-    @Getter
     private int accountExpireTime;
-
     @Value("${cacheexpire.order}")
-    @Setter
-    @Getter
     private int orderExpireTime;
 
-
-    @PostConstruct
-    private void init() {
-        redisStringCache = new RedisStringCache();
-        redisStringCache.setTemplate(template);
-        redisStringCache.setCaptchaExpireTime(captchaExpireTime);
-        redisStringCache.setAccountExpireTime(accountExpireTime);
-        redisStringCache.setOrderExpireTime(orderExpireTime);
+    private RedisStringCache() {
     }
 
     //增加缓存
-    public static void cache(String key, String value, com.example.counter.cache.CacheType cacheType) {
+    public static void cache(String key, String value, CacheType cacheType) {
         int expireTime;
         switch (cacheType) {
             case ACCOUNT:
@@ -70,7 +49,7 @@ public class RedisStringCache {
     }
 
     //查询缓存
-    public static String get(String key, com.example.counter.cache.CacheType cacheType) {
+    public static String get(String key, CacheType cacheType) {
         return redisStringCache.getTemplate()
                 .opsForValue().get(cacheType.type() + key);
     }
@@ -79,6 +58,47 @@ public class RedisStringCache {
     public static void remove(String key, CacheType cacheType) {
         redisStringCache.getTemplate()
                 .delete(cacheType.type() + key);
+    }
+
+    public StringRedisTemplate getTemplate() {
+        return template;
+    }
+
+    public void setTemplate(StringRedisTemplate template) {
+        this.template = template;
+    }
+
+    public int getCaptchaExpireTime() {
+        return captchaExpireTime;
+    }
+
+    public void setCaptchaExpireTime(int captchaExpireTime) {
+        this.captchaExpireTime = captchaExpireTime;
+    }
+
+    public int getAccountExpireTime() {
+        return accountExpireTime;
+    }
+
+    public void setAccountExpireTime(int accountExpireTime) {
+        this.accountExpireTime = accountExpireTime;
+    }
+
+    public int getOrderExpireTime() {
+        return orderExpireTime;
+    }
+
+    public void setOrderExpireTime(int orderExpireTime) {
+        this.orderExpireTime = orderExpireTime;
+    }
+
+    @PostConstruct
+    private void init() {
+        redisStringCache = new RedisStringCache();
+        redisStringCache.setTemplate(template);
+        redisStringCache.setCaptchaExpireTime(captchaExpireTime);
+        redisStringCache.setAccountExpireTime(accountExpireTime);
+        redisStringCache.setOrderExpireTime(orderExpireTime);
     }
 
 }
