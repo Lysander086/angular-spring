@@ -1,16 +1,23 @@
 package com.example.jpademo.entity;
 
+
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Date;
 
 /*  JPA以Entity 为中心， 实体类就必须使用@Entity 来注解，*/
 @Entity
+@Getter
+@Setter
 public class User {
 
-    @ManyToOne
+//    @ManyToOne
     // JoinColumn ，与ManyToOne 搭配使用，说明外键字段是department_id 。
-    @JoinColumn(name = "department_id")
-    Department department;
+//    @JoinColumn(name = "department_id")
+//    Department department;
+
     @Id
     /*主键生成策略由注解@GeneratedValue 来指定*/
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,13 +42,7 @@ public class User {
     }
 
 
-    public Department getDepartment() {
-        return department;
-    }
 
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
 
     public String getName() {
         return name;
