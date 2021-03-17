@@ -1,12 +1,10 @@
 package com.example.jpademo.service;
 
+import com.example.jpademo.entity.Department;
 import com.example.jpademo.entity.User;
 import com.example.jpademo.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,13 +25,22 @@ public class UserServiceImpl implements UserService {
     EntityManager em;
 
     @Override
-    /*todo: watch console log out*/
     public Integer addUser(User user) {
         userDao.save(user);
         Integer id = user.getId();
         user.setName("1" + user.getName());
         userDao.save(user);
         return id;
+    }
+
+    public List<User> getByExample(String name) {
+        User user = new User();
+        Department department = new Department();
+        user.setName(name);
+        department.setId(1);
+        Example<User> example = Example.of(user);
+        List<User> list = userDao.findAll(example);
+        return list;
     }
 
     @Override
@@ -63,7 +70,7 @@ public class UserServiceImpl implements UserService {
             return new PageImpl<>(Collections.emptyList(), page, 0);
         }
 
-        List list =  getQueryResult(baseJpql, params, page);
+        List list = getQueryResult(baseJpql, params, page);
 
         /* return result */
         Page res = new PageImpl(list, page, count);
@@ -71,9 +78,10 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    private List getQueryResult(StringBuilder baseJpql, Map<String, Object> paras, Pageable page) {
+    private List getQueryResult(StringBuilder baseJpql, Map<String, Object> params, Pageable page) {
         Query query = em.createQuery("select u " + baseJpql.toString());
-        setQueryParameter(query, paras);
+        setQueryParameter(query, params);
+        // Query 对象在查询结果集的时候，提供 setFirstResult 来设置查询的起始位置，
         query.setFirstResult((int) page.getOffset());
         query.setMaxResults(page.getPageNumber());
         List list = query.getResultList();
