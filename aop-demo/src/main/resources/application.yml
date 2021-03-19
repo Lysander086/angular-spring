@@ -1,6 +1,6 @@
 
-spring:
 
+spring:
   datasource:
     url: jdbc:mysql://localhost:3306/runoob?useSSL=false&serverTimezone=GMT
     username: root
@@ -12,3 +12,5 @@ spring:
     hibernate:
 #      是否自动建库。默认为none , Hibernate 能根据Entity 类      的定义自动生成表以及修改己有的表和表主外键设置等。我
       ddl-auto: none
+server:
+  port: 8000
