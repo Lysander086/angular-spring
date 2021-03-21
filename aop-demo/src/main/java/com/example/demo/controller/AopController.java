@@ -24,6 +24,7 @@ public class AopController {
 
     @GetMapping("/hi")
     public String hi() {
+
         return "hi";
     }
 
