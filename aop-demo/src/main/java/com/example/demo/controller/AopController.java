@@ -28,5 +28,11 @@ public class AopController {
         return "hi";
     }
 
+    @PermissionsAnnotation()
+    @RequestMapping(value = "/permission/check", method = RequestMethod.POST)
+    public JSONObject permissionCheck(@RequestBody JSONObject req){
+        return JSON.parseObject("{\"message\":\"SUCCESS\",\"code\":200}");
+    }
+
 
 }
