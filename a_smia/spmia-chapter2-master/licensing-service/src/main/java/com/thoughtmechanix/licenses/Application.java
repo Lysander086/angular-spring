@@ -1,13 +1,12 @@
-package com.example.clouddemo;
+package com.thoughtmechanix.licenses;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CloudDemoApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(CloudDemoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
-
 }

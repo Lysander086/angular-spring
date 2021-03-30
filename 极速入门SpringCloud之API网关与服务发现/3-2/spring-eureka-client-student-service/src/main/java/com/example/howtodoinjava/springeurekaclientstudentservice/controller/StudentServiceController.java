@@ -24,7 +24,7 @@ public class StudentServiceController {
 		lst.add(std);
 		std = new Student("Lokesh", "Class V");
 		lst.add(std);
-		
+
 		schooDB.put("abcschool", lst);
 
 		lst = new ArrayList<Student>();
