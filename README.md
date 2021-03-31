@@ -1,5 +1,6 @@
-# 任务
+# assignment
 
+- [ ] rabbitmq
 - [x] Finance with java
   - [Spring Cloud+Vertx+Disruptor 金融业撮合交易系统实战](https://coding.imooc.com/class/437.html)
 - [ ] typescript
