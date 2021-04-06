@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.springboot.ad.study.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 /**
  * <h1>worker 表实体类</h1>
- * Created by Qinyi.
+ *
  */
 @Data
 @NoArgsConstructor

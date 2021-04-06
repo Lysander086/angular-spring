@@ -1,16 +1,19 @@
-package com.example.demo;
+package com.springboot.ad.study;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-@SpringBootTest
+/**
+ * <h1>测试程序检查程序</h1>
+ */
 @RunWith(SpringRunner.class)
-class JpaAdLearnApplicationTests {
+@SpringBootTest
+public class ApplicationTests {
 
     @Test
-    void contextLoads() {
-    }
+    public void contextLoad() {
 
+    }
 }

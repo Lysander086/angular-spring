@@ -14,7 +14,7 @@ spring:
       # DDL: 用于定义数据库的三级结构，包括外模式、概念模式、内模式及其相互之间的映像，定义数据的完整性、安全控制等约束
       # 例如: CREATE、ALTER、DROP、TRUNCATE 语句, DDL 不需要提交
       ddl-auto: update  # 将处理在启动时加载元数据的所有类的模式(即在持久性单元中指定的类)
-#      ddl-auto: none  # 什么都不做
+      #      ddl-auto: none  # 什么都不做
       # 其他可选值
       # create: 每次运行程序时, 都会重新创建表, 故而数据会丢失
       # create-drop: 每次运行程序时会先创建表结构, 然后待程序结束时清空表
@@ -22,10 +22,10 @@ spring:
       # validate: 运行程序会校验数据与数据库的字段类型是否相同, 字段不同会报错
     properties:
       # 输出 SQL 语句
-      hibernate.show_sql: false
+      hibernate.show_sql: true
       # 无论多长都只会在一行显示。我们可以将 format_sql 配制为true, 这样 Hibernate 会先将sql格式化, 然后再输出
-#      hibernate.format_sql: true
-    # 关闭懒加载配置, 否则会报懒加载错误
+      #      hibernate.format_sql: true
+      # 关闭懒加载配置, 否则会报懒加载错误
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
 
