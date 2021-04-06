@@ -78,6 +78,13 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    public Page<User> queryUser2(Integer departmentId, Pageable page){
+        StringBuilder baseJpql = new StringBuilder("from User u where 1=1 ");
+
+
+        return null;
+    }
+
     private List getQueryResult(StringBuilder baseJpql, Map<String, Object> params, Pageable page) {
         Query query = em.createQuery("select u " + baseJpql.toString());
         setQueryParameter(query, params);
