@@ -9,5 +9,4 @@ import java.util.List;
 @RepositoryDefinition(domainClass = Worker.class, idClass = Long.class)
 public interface WorkerDaoDefinition {
     List<Worker> findByName(String name);
-
 }
