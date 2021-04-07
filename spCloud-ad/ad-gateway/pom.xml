@@ -31,7 +31,7 @@
             <!-- 要注册到 server , 就一定是 client -->
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-        <!-- 服务网关 -->
+        <!-- 服务网关: 实现网关服务 -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
