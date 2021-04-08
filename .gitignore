@@ -3,6 +3,9 @@
 # front end
 **/.env
 
+**/.mvn
+mvnw
+mvnw.cmd
 
 HELP.md
 target/
