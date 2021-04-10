@@ -19,6 +19,16 @@ const routes: RouteConfig[] = [
     name: 'login',
     component: importByPageName('Login'),
   },
+  {
+    path: '/observables',
+    name: 'observables',
+    component: importByPageName('observables'),
+  },
+  {
+    path: '/promise',
+    name: 'promise',
+    component: importByPageName('promise'),
+  },
 ]
 
 const router = new VueRouter({ routes })
