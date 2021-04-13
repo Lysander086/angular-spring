@@ -6,10 +6,11 @@
 
 ![echarts supported](https://img.shields.io/badge/echarts-%5E4.6.0-brightgreen) ![vue supported](https://img.shields.io/badge/vue-%5E2.6.11-brightgreen) ![typescript supported](https://img.shields.io/badge/typescript-~3.7.5-blue)
 
-## Project setup
-```
-npm install
-```
+## directory learning
+- src\Pages\Observable  
+    - [Angular7入门辅助教程（五）——Observable（可观察对象）
+    ](https://blog.csdn.net/qq_34414916/article/details/85194098)
+    - [Using observables to pass values](https://angular.io/guide/observables)
 
 ### Compiles and hot-reloads for development
 ```

@@ -17,7 +17,7 @@ export default class extends Vue {
         };
       }
 
-      var subscription = subscribe({ next: (x) => console.log(x) });
+      var subscription = subscribe({ next: (x:any) => console.log(x) });
       setTimeout(() => subscription.unsubscribe(), 5000);
     }
     f4();
