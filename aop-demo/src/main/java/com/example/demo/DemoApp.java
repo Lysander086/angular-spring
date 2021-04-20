@@ -4,6 +4,7 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,6 +16,7 @@ import java.io.OutputStreamWriter;
 //@ComponentScan(value={"com.*","com.example.demo.controller"})//扫描组件 @ComponentScan(value = "com.spriboot.controller") 配置扫描组件的路径
 @SpringBootApplication
 //@EntityScan("entity对应的包路径")
+@EnableAsync
 @Slf4j
 public class DemoApp {
     public static void main(String[] args) {
