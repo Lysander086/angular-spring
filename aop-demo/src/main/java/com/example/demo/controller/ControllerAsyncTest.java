@@ -16,6 +16,8 @@ import java.util.concurrent.Future;
 @Controller
 @RequestMapping("async")
 public class ControllerAsyncTest {
+
+
     @Autowired
     private AsyncService asyncService;
 
