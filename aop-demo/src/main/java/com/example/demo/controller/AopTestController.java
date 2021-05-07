@@ -1,16 +1,19 @@
-package test;
+package com.example.demo.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import test.TestException;
 
 @RestController
 @RequestMapping(value = "/aop")
+@Slf4j
 public class AopTestController {
+
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     public Result test(@RequestParam boolean throwException) throws TestException {
-
 // case 1
 
         if (throwException) {
@@ -25,11 +28,8 @@ public class AopTestController {
         System.out.println("test OK");
 
         return new Result() {{
-
             this.setId(111);
-
             this.setName("mock a Result");
-
         }};
 
     }

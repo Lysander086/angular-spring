@@ -1,5 +1,6 @@
 package com.example.demo.advice;
 
+import com.example.demo.controller.AopTestController;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.Signature;
@@ -40,6 +41,7 @@ public class LogAspectHandler {
 
         // 也可以用来记录一些信息，比如获取请求的 URL 和 IP
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert attributes != null;
         HttpServletRequest request = attributes.getRequest();
         // 获取请求 URL
         String url = request.getRequestURL().toString();
@@ -51,7 +53,9 @@ public class LogAspectHandler {
 
     @AfterReturning(pointcut = "pointCut()", returning = "result")
     public void doAfterReturning(JoinPoint joinPoint, Object result) {
-
+        if  (result instanceof AopTestController.Result){
+            log.info("result is an instanceof AopTestController.Result");
+        }
         Signature signature = joinPoint.getSignature();
         String classMethod = signature.getName();
         log.info("方法{}执行完毕，返回参数为：{}", classMethod, result);
