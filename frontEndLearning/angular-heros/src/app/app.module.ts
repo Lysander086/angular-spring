@@ -14,6 +14,9 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
+import { CustomerDashboardModule } from './customer-dashboard/customer-dashboard.module';
+import { ChildViewComponent } from './child-view/child-view.component';
+import { AfterViewComponent } from './after-view/after-view.component';
 
 @NgModule({
   imports: [
@@ -21,6 +24,9 @@ import { MessagesComponent } from './messages/messages.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+
+    // my imports
+    CustomerDashboardModule, // add the feature module here
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
@@ -35,7 +41,9 @@ import { MessagesComponent } from './messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    ChildViewComponent,
+    AfterViewComponent
   ],
   bootstrap: [ AppComponent ]
 })
